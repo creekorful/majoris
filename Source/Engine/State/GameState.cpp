@@ -1,6 +1,6 @@
 #include "GameState.h"
 
-void GameState::initialize(GameEngine* pGameEngine)
+void ma::GameState::initialize(ma::GameEngine* pGameEngine)
 {
     if (!m_initialized)
     {
@@ -12,7 +12,7 @@ void GameState::initialize(GameEngine* pGameEngine)
     }
 }
 
-GameEngine* GameState::getEngine()
+ma::GameEngine* ma::GameState::getEngine()
 {
     return m_pGameEngine;
 }

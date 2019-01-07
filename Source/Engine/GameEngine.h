@@ -7,9 +7,15 @@
 
 #include "State/GameState.h"
 
+namespace ma
+{
+    class GameState;
+    class GameEngine;
+}
+
 class GameState;
 
-class GameEngine
+class ma::GameEngine
 {
 public:
     /**
@@ -57,7 +63,7 @@ public:
      *
      * @param pState pointer to the state
      */
-    void setCurrentState(GameState* pState);
+    void setCurrentState(ma::GameState* pState);
 
 private:
     sf::RenderWindow m_window;

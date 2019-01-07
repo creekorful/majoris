@@ -6,9 +6,13 @@
 #include "../Common/Updateable.h"
 #include "GameObject.h"
 
-class GameObject;
+namespace ma
+{
+    class GameObject;
+    class Component;
+}
 
-class Component : public Updateable
+class ma::Component : public ma::Updateable
 {
 public:
 

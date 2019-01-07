@@ -7,12 +7,16 @@
 #include "../Common/Updateable.h"
 #include "../GameEngine.h"
 
-class GameEngine;
+namespace ma
+{
+    class GameState;
+    class GameEngine;
+}
 
 /**
  * A game state can be pause menu main menu single player mode etc...
  */
-class GameState : public Updateable, public sf::Drawable
+class ma::GameState : public ma::Updateable, public sf::Drawable
 {
 public:
 
@@ -23,7 +27,7 @@ public:
      *
      * @param pGameEngine pointer to associated game engine
      */
-    void initialize(GameEngine* pGameEngine);
+    void initialize(ma::GameEngine* pGameEngine);
 
     /**
      * Update game state physics using given delta time

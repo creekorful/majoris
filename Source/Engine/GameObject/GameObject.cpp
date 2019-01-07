@@ -1,6 +1,6 @@
 #include "GameObject.h"
 
-void GameObject::update(float dt)
+void ma::GameObject::update(float dt)
 {
     for (auto pComponent : m_pComponents)
     {
@@ -8,7 +8,7 @@ void GameObject::update(float dt)
     }
 }
 
-void GameObject::pollEvent(const sf::Event& event)
+void ma::GameObject::pollEvent(const sf::Event& event)
 {
     for (auto pComponent : m_pComponents)
     {
@@ -16,7 +16,7 @@ void GameObject::pollEvent(const sf::Event& event)
     }
 }
 
-GameObject::~GameObject()
+ma::GameObject::~GameObject()
 {
     for (auto pComponent : m_pComponents)
     {
@@ -24,7 +24,7 @@ GameObject::~GameObject()
     }
 }
 
-void GameObject::add(Component* pComponent)
+void ma::GameObject::add(Component* pComponent)
 {
     m_pComponents.push_back(pComponent);
 }

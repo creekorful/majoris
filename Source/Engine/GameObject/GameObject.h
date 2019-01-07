@@ -8,13 +8,17 @@
 
 #include "Component.h"
 
-class Component;
+namespace ma
+{
+    class Component;
+    class GameObject;
+}
 
 /**
  * Game object base class
  * based on CBSE layout
  */
-class GameObject : public Updateable, public sf::Drawable, public sf::Transformable
+class ma::GameObject : public ma::Updateable, public sf::Drawable, public sf::Transformable
 {
 public:
 

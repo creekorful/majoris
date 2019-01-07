@@ -1,16 +1,16 @@
 #include "GameEngine.h"
 
-GameEngine::GameEngine(const std::string& title)
+ma::GameEngine::GameEngine(const std::string& title)
         : GameEngine(sf::VideoMode::getFullscreenModes()[0], title, sf::Style::Fullscreen)
 {
 }
 
-GameEngine::GameEngine(const sf::VideoMode& videoMode, const std::string& title) :
+ma::GameEngine::GameEngine(const sf::VideoMode& videoMode, const std::string& title) :
         GameEngine(videoMode, title, sf::Style::Default)
 {
 }
 
-GameEngine::GameEngine(const sf::VideoMode& videoMode, const std::string& title, unsigned int style)
+ma::GameEngine::GameEngine(const sf::VideoMode& videoMode, const std::string& title, unsigned int style)
 {
     // create window and setup
     m_window.create(videoMode, title, style);
@@ -20,12 +20,12 @@ GameEngine::GameEngine(const sf::VideoMode& videoMode, const std::string& title,
     m_pState = nullptr;
 }
 
-bool GameEngine::isRunning()
+bool ma::GameEngine::isRunning()
 {
     return m_window.isOpen();
 }
 
-void GameEngine::execute()
+void ma::GameEngine::execute()
 {
     // first of all poll events
     sf::Event event{};
@@ -54,7 +54,7 @@ void GameEngine::execute()
     m_window.display();
 }
 
-void GameEngine::setCurrentState(GameState* pState)
+void ma::GameEngine::setCurrentState(ma::GameState* pState)
 {
     m_pState = pState;
     m_pState->initialize(this);
@@ -66,7 +66,7 @@ void GameEngine::setCurrentState(GameState* pState)
     }
 }
 
-void GameEngine::quit()
+void ma::GameEngine::quit()
 {
     m_window.close();
 }
