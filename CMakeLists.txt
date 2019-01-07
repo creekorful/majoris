@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.13)
+cmake_minimum_required(VERSION 3.9)
 project(Majoris)
 
 set(CMAKE_CXX_STANDARD 17)
@@ -14,6 +14,6 @@ add_library(Majoris Source/main.cpp
         Source/Engine/GameObject/GameObject.h Source/Engine/GameObject/GameObject.cpp
         Source/Engine/GameObject/Component.h Source/Engine/GameObject/Component.cpp
         Source/Engine/State/GameState.h Source/Engine/State/GameState.cpp
-        Source/Engine/Utils/RandomNumberGenerator.h Source/Engine/Utils/RandomNumberGenerator.cpp)
+        Source/Engine/Utils/RandomNumberGenerator.h Source/Engine/Utils/RandomNumberGenerator.cpp Source/Engine/Font/FontManager.cpp Source/Engine/Font/FontManager.h)
 
 target_link_libraries(Majoris ${SFML_LIBRARIES} ${SFML_DEPENDENCIES})
