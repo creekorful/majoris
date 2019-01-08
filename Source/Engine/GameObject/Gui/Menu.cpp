@@ -68,10 +68,10 @@ void ma::Gui::Menu::update(float dt)
 
 void ma::Gui::Menu::draw(sf::RenderTarget& target, sf::RenderStates states) const
 {
+    states.transform *= transform();
+
     for (const auto& text : m_items)
     {
-        // todo maybe manage relative position
-        //states.transform *= getTransform();
         target.draw(text, states);
     }
 }
@@ -85,7 +85,7 @@ void ma::Gui::Menu::setItems(const std::vector<std::string>& items, sf::Font& fo
         text.setColor(m_defaultColor);
         text.setText(item);
         text.setFont(font);
-        text.setPosition(position().x, position().y + (index * 50));
+        text.setPosition(0, index * 50);
 
         m_items.push_back(text);
         index++;
@@ -105,4 +105,36 @@ void ma::Gui::Menu::setHighlightColor(const sf::Color& highlightColor)
 void ma::Gui::Menu::setCallback(ma::Gui::IMenuCallback* pCallback)
 {
     m_pCallback = pCallback;
+}
+
+void ma::Gui::Menu::setPosition(sf::Vector2f position)
+{
+    setPosition(position.x, position.y);
+}
+
+void ma::Gui::Menu::setPosition(float x, float y)
+{
+    // Compute position based on menu size
+    sf::Vector2f menuSize;
+
+    if (!m_items.empty())
+    {
+        // x size is determinate by longest menu entry
+        for (const auto& entry : m_items)
+        {
+            float size = entry.globalBounds().width;
+
+            if (size > menuSize.x)
+            {
+                menuSize.x = size;
+            }
+        }
+
+        // y size is equals to (number of items * item height) + (spacing * number of items - 1)
+        menuSize.y = m_items.at(0).globalBounds().height * m_items.size();
+        menuSize.y += 50 * (m_items.size() - 1);
+    }
+
+    setOrigin(menuSize.x / 2, menuSize.y / 2);
+    GameObject::setPosition(x, y);
 }

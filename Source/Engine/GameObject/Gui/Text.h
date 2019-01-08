@@ -64,6 +64,11 @@ public:
      */
     void setFont(sf::Font& font);
 
+    /**
+     * @return text global bounds
+     */
+    sf::FloatRect globalBounds() const;
+
 protected:
     void draw(sf::RenderTarget& target, sf::RenderStates states) const override;
 

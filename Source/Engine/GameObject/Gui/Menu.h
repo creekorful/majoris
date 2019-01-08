@@ -80,6 +80,16 @@ public:
      */
     void setCallback(ma::Gui::IMenuCallback* pCallback);
 
+    /**
+     * Method override because of custom positioning behavior
+     */
+    void setPosition(sf::Vector2f position) override;
+
+    /**
+     * Method override because of custom positioning behavior
+     */
+    void setPosition(float x, float y) override;
+
 protected:
     void draw(sf::RenderTarget& target, sf::RenderStates states) const override;
 

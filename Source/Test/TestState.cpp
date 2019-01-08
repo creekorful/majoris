@@ -31,8 +31,8 @@ void TestState::initialize()
     // Create dummy menu at screen center
     m_menu.setDefaultColor(sf::Color::Yellow);
     m_menu.setHighlightColor(sf::Color::Red);
-    m_menu.setPosition(screenSize.x / 2, screenSize.y /2);
     m_menu.setItems({"Singleplayer", "Multiplayer", "Options", "Exit"}, m_font);
+    m_menu.setPosition(screenSize.x / 2.f, screenSize.y / 2.f);
     m_menu.setCallback(this);
 }
 

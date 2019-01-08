@@ -48,3 +48,8 @@ sf::Transform ma::GameObject::transform() const
 {
     return m_transform.getTransform();
 }
+
+void ma::GameObject::setOrigin(float x, float y)
+{
+    m_transform.setOrigin(x, y);
+}

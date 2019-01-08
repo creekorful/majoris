@@ -46,7 +46,7 @@ public:
      *
      * @param position the game object position
      */
-    void setPosition(sf::Vector2f position);
+    virtual void setPosition(sf::Vector2f position);
 
     /**
      * Set game object position
@@ -54,7 +54,7 @@ public:
      * @param x position on x-axis
      * @param y position on y-axis
      */
-    void setPosition(float x, float y);
+    virtual void setPosition(float x, float y);
 
     /**
      * @return game object transform
@@ -68,6 +68,14 @@ public:
 
 protected:
     void draw(sf::RenderTarget& target, sf::RenderStates states) const override = 0;
+
+    /**
+     * set game object transform origin
+     *
+     * @param x x position of transform
+     * @param y y position of transform
+     */
+    void setOrigin(float x, float y);
 
 private:
     std::vector<Component*> m_pComponents;

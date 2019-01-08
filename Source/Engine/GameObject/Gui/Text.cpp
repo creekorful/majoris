@@ -47,3 +47,8 @@ void ma::Gui::Text::setFont(sf::Font& font)
 {
     m_text.setFont(font);
 }
+
+sf::FloatRect ma::Gui::Text::globalBounds() const
+{
+    return m_text.getGlobalBounds();
+}
