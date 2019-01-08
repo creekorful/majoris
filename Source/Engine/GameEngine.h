@@ -65,6 +65,11 @@ public:
      */
     void setCurrentState(ma::GameState* pState);
 
+    /**
+     * @return current screen/window size
+     */
+    sf::Vector2u screenSize() const;
+
 private:
     sf::RenderWindow m_window;
     GameState* m_pState;

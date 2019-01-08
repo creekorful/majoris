@@ -70,3 +70,8 @@ void ma::GameEngine::quit()
 {
     m_window.close();
 }
+
+sf::Vector2u ma::GameEngine::screenSize() const
+{
+    return m_window.getSize();
+}
