@@ -13,14 +13,6 @@ ma::Text::Text(sf::Font& font, sf::Color color, const std::string& text, const s
     m_text.setPosition(position);
 }
 
-void ma::Text::update(float dt)
-{
-}
-
-void ma::Text::pollEvent(const sf::Event& event)
-{
-}
-
 void ma::Text::draw(sf::RenderTarget& target, sf::RenderStates states) const
 {
     states.transform *= getTransform();

@@ -33,10 +33,6 @@ public:
      */
     Text(sf::Font& font, sf::Color color, const std::string& text = "", const sf::Vector2f& position = sf::Vector2f());
 
-    void update(float dt) override;
-
-    void pollEvent(const sf::Event& event) override;
-
     /**
      * @return the text value
      */
