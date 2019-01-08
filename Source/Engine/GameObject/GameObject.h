@@ -31,7 +31,7 @@ public:
      */
     void update(float dt) override;
 
-    void pollEvent(const sf::Event& event);
+    virtual void pollEvent(const sf::Event& event);
 
     /**
      * Add component to the game object

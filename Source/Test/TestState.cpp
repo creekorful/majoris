@@ -24,9 +24,11 @@ void TestState::initialize()
     getEngine()->fontManager().loadFont("Fonts/Arial.ttf");
     m_font = getEngine()->fontManager().getFont("Arial");
 
-    // Create dummy text
+    sf::Vector2u screenSize = getEngine()->screenSize();
+
+    // Create dummy text at screen center
     m_text.setFont(m_font);
-    m_text.setString("This is a test string :D");
-    m_text.setFillColor(sf::Color::Yellow);
-    m_text.setPosition(100, 100);
+    m_text.setText("This is a test string :D");
+    m_text.setColor(sf::Color::Yellow);
+    m_text.setPosition(screenSize.x /2 , screenSize.y / 2);
 }

@@ -1,9 +1,8 @@
 #ifndef MAJORIS_TESTSTATE_H
 #define MAJORIS_TESTSTATE_H
 
-#include <SFML/Graphics/Text.hpp>
-
 #include "../Engine/State/GameState.h"
+#include "../Engine/GameObject/Text.h"
 
 class TestState : public ma::GameState
 {
@@ -28,7 +27,7 @@ protected:
 private:
     sf::Font m_font;
 
-    sf::Text m_text;
+    ma::Text m_text;
 };
 
 
