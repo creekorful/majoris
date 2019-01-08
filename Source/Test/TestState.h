@@ -1,6 +1,7 @@
 #ifndef MAJORIS_TESTSTATE_H
 #define MAJORIS_TESTSTATE_H
 
+#include <SFML/Graphics/Text.hpp>
 
 #include "../Engine/State/GameState.h"
 
@@ -23,6 +24,11 @@ protected:
     void draw(sf::RenderTarget& target, sf::RenderStates states) const override;
 
     void initialize() override;
+
+private:
+    sf::Font m_font;
+
+    sf::Text m_text;
 };
 
 
