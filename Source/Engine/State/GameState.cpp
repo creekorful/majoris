@@ -53,3 +53,8 @@ void ma::GameState::reinitialize()
 
     m_initialized = false;
 }
+
+bool ma::GameState::shouldReinitialize()
+{
+    return false;
+}

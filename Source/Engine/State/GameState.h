@@ -13,6 +13,7 @@
 namespace ma
 {
     class GameState;
+
     class GameEngine;
 }
 
@@ -31,6 +32,22 @@ public:
      * @param pGameEngine pointer to associated game engine
      */
     void initialize(ma::GameEngine* pGameEngine);
+
+    /**
+     * Re-initialize the game state
+     *
+     * this method will reset initialize flag at false so the next time the state become active
+     * the initialization method will be called again
+     * and will also remove all game objects from list without calling delete method
+     *
+     * this method can be overriden but make sure to call method however behavior is undefined
+     */
+    virtual void reinitialize();
+
+    /**
+     * @return true if the state should be reinitialized false otherwise
+     */
+    virtual bool shouldReinitialize();
 
     /**
      * Update game state physics using given delta time
@@ -77,17 +94,6 @@ protected:
      * @param pointer to the game object to be added
      */
     void add(GameObject* gameObject);
-
-    /**
-     * Re-initialize the game state
-     *
-     * this method will reset initialize flag at false so the next time the state become active
-     * the initialization method will be called again
-     * and will also remove all game objects from list without calling delete method
-     *
-     * this method can be overriden but make sure to call method however behavior is undefined
-     */
-    virtual void reinitialize();
 
     /**
      * @return the linked / associated game engine instance

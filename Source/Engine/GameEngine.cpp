@@ -56,6 +56,15 @@ void ma::GameEngine::execute()
 
 void ma::GameEngine::setCurrentState(ma::GameState* pState)
 {
+    // If there is a previous state that should be reinitialized
+    if (m_pState != nullptr)
+    {
+        if (m_pState->shouldReinitialize())
+        {
+            m_pState->reinitialize();
+        }
+    }
+
     m_pState = pState;
     m_pState->initialize(this);
 
