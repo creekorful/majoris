@@ -4,7 +4,7 @@
 #include <SFML/Graphics/Text.hpp>
 #include <SFML/Graphics/RenderTarget.hpp>
 
-#include "GameObject.h"
+#include "../GameObject.h"
 
 namespace ma
 {

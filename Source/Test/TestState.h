@@ -2,7 +2,7 @@
 #define MAJORIS_TESTSTATE_H
 
 #include "../Engine/State/GameState.h"
-#include "../Engine/GameObject/Text.h"
+#include "../Engine/GameObject/Gui/Text.h"
 
 class TestState : public ma::GameState
 {
