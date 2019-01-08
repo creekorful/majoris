@@ -75,3 +75,8 @@ sf::Vector2u ma::GameEngine::screenSize() const
 {
     return m_window.getSize();
 }
+
+ma::FontManager& ma::GameEngine::fontManager()
+{
+    return m_fontManager;
+}

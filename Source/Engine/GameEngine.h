@@ -6,6 +6,7 @@
 #include <SFML/Graphics/RenderWindow.hpp>
 
 #include "State/GameState.h"
+#include "Font/FontManager.h"
 
 namespace ma
 {
@@ -70,9 +71,15 @@ public:
      */
     sf::Vector2u screenSize() const;
 
+    /**
+     * @return reference to font manager
+     */
+    ma::FontManager& fontManager();
+
 private:
     sf::RenderWindow m_window;
     GameState* m_pState;
+    ma::FontManager m_fontManager;
     sf::Clock m_deltaClock;
 };
 
