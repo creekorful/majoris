@@ -2,10 +2,12 @@
 
 void TestState::update(float dt)
 {
+    m_menu.update(dt);
 }
 
 void TestState::pollEvent(const sf::Event& event)
 {
+    m_menu.pollEvent(event);
 }
 
 std::string TestState::title()
@@ -15,7 +17,7 @@ std::string TestState::title()
 
 void TestState::draw(sf::RenderTarget& target, sf::RenderStates states) const
 {
-    target.draw(m_text, states);
+    target.draw(m_menu, states);
 }
 
 void TestState::initialize()
@@ -26,9 +28,22 @@ void TestState::initialize()
 
     sf::Vector2u screenSize = getEngine()->screenSize();
 
-    // Create dummy text at screen center
-    m_text.setFont(m_font);
-    m_text.setText("This is a test string :D");
-    m_text.setColor(sf::Color::Yellow);
-    m_text.setPosition(screenSize.x /2 , screenSize.y / 2);
+    // Create dummy menu at screen center
+    m_menu.setDefaultColor(sf::Color::Yellow);
+    m_menu.setHighlightColor(sf::Color::Red);
+    m_menu.setPosition(screenSize.x / 2, screenSize.y /2);
+    m_menu.setItems({"Singleplayer", "Multiplayer", "Options", "Exit"}, m_font);
+    m_menu.setCallback(this);
+}
+
+void TestState::onMenuItemSelected(const std::string& itemName)
+{
+    if (itemName == "Exit")
+    {
+        getEngine()->quit();
+    }
+}
+
+void TestState::onMenuItemHovered(const std::string& itemName)
+{
 }
