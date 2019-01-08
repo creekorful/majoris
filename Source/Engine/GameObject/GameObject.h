@@ -11,6 +11,7 @@
 namespace ma
 {
     class Component;
+
     class GameObject;
 }
 
@@ -18,7 +19,7 @@ namespace ma
  * Game object base class
  * based on CBSE layout
  */
-class ma::GameObject : public ma::Updateable, public sf::Drawable, public sf::Transformable
+class ma::GameObject : public ma::Updateable, public sf::Drawable
 {
 public:
 
@@ -40,11 +41,38 @@ public:
      */
     void add(Component* pComponent);
 
+    /**
+     * Set game object position
+     *
+     * @param position the game object position
+     */
+    void setPosition(sf::Vector2f position);
+
+    /**
+     * Set game object position
+     *
+     * @param x position on x-axis
+     * @param y position on y-axis
+     */
+    void setPosition(float x, float y);
+
+    /**
+     * @return game object transform
+     */
+    sf::Transform transform() const;
+
+    /**
+     * @return game object position
+     */
+    sf::Vector2f position() const;
+
 protected:
     void draw(sf::RenderTarget& target, sf::RenderStates states) const override = 0;
 
 private:
     std::vector<Component*> m_pComponents;
+
+    sf::Transformable m_transform;
 };
 
 

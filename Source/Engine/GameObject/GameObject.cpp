@@ -28,3 +28,23 @@ void ma::GameObject::add(Component* pComponent)
 {
     m_pComponents.push_back(pComponent);
 }
+
+void ma::GameObject::setPosition(sf::Vector2f position)
+{
+    m_transform.setPosition(position);
+}
+
+void ma::GameObject::setPosition(float x, float y)
+{
+    m_transform.setPosition(x, y);
+}
+
+sf::Vector2f ma::GameObject::position() const
+{
+    return m_transform.getPosition();
+}
+
+sf::Transform ma::GameObject::transform() const
+{
+    return m_transform.getTransform();
+}

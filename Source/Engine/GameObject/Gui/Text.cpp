@@ -15,7 +15,7 @@ ma::Gui::Text::Text(sf::Font& font, sf::Color color, const std::string& text, co
 
 void ma::Gui::Text::draw(sf::RenderTarget& target, sf::RenderStates states) const
 {
-    states.transform *= getTransform();
+    states.transform *= transform();
     target.draw(m_text, states);
 }
 

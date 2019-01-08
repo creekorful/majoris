@@ -85,7 +85,7 @@ void ma::Gui::Menu::setItems(const std::vector<std::string>& items, sf::Font& fo
         text.setColor(m_defaultColor);
         text.setText(item);
         text.setFont(font);
-        text.setPosition(getPosition().x, getPosition().y + (index * 50));
+        text.setPosition(position().x, position().y + (index * 50));
 
         m_items.push_back(text);
         index++;
