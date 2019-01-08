@@ -13,29 +13,71 @@ namespace ma
     class IMenuCallback;
 }
 
+/**
+ * Represent a callback to be used with menu
+ */
 class ma::IMenuCallback
 {
 public:
+
+    /**
+     * Triggered by menu when an item is selected (user press enter)
+     *
+     * @param itemName the menu item name
+     */
     virtual void onMenuItemSelected(const std::string& itemName) = 0;
+
+    /**
+     * Triggered by menu when an item is hovered
+     *
+     * @param itemName the menu item name
+     */
     virtual void onMenuItemHovered(const std::string& itemName) = 0;
 };
 
+/**
+ * Represent a GUI menu with items
+ */
 class ma::Menu : public ma::GameObject
 {
 public:
 
+    /**
+     * Create an empty menu with no items
+     */
     Menu();
 
     void pollEvent(const sf::Event& event) override;
 
     void update(float dt) override;
 
+    /**
+     * Set menu items
+     *
+     * @param items list of menu items
+     * @param font font to use for menu
+     */
     void setItems(const std::vector<std::string>& items, sf::Font& font);
 
+    /**
+     * Set menu default color (no highlighted entry)
+     *
+     * @param defaultColor the menu default color
+     */
     void setDefaultColor(const sf::Color& defaultColor);
 
+    /**
+     * Set menu highlight color (color used when an entry is hovered)
+     *
+     * @param highlightColor menu highlight color
+     */
     void setHighlightColor(const sf::Color& highlightColor);
 
+    /**
+     * Set menu associated callback
+     *
+     * @param pCallback pointer to menu callback
+     */
     void setCallback(ma::IMenuCallback* pCallback);
 
 protected:
