@@ -4,7 +4,7 @@
 #include "../Engine/State/GameState.h"
 #include "../Engine/GameObject/Gui/Menu.h"
 
-class TestState : public ma::GameState, public ma::IMenuCallback
+class TestState : public ma::GameState, public ma::Gui::IMenuCallback
 {
 public:
     void update(float dt) override;
@@ -33,7 +33,7 @@ protected:
 private:
     sf::Font m_font;
 
-    ma::Menu m_menu;
+    ma::Gui::Menu m_menu;
 };
 
 

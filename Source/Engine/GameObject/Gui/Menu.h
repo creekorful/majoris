@@ -6,7 +6,7 @@
 #include "../GameObject.h"
 #include "Text.h"
 
-namespace ma
+namespace ma::Gui
 {
     class Menu;
 
@@ -16,7 +16,7 @@ namespace ma
 /**
  * Represent a callback to be used with menu
  */
-class ma::IMenuCallback
+class ma::Gui::IMenuCallback
 {
 public:
 
@@ -38,7 +38,7 @@ public:
 /**
  * Represent a GUI menu with items
  */
-class ma::Menu : public ma::GameObject
+class ma::Gui::Menu : public ma::GameObject
 {
 public:
 
@@ -78,16 +78,16 @@ public:
      *
      * @param pCallback pointer to menu callback
      */
-    void setCallback(ma::IMenuCallback* pCallback);
+    void setCallback(ma::Gui::IMenuCallback* pCallback);
 
 protected:
     void draw(sf::RenderTarget& target, sf::RenderStates states) const override;
 
 private:
-    std::vector<ma::Text> m_items;
+    std::vector<ma::Gui::Text> m_items;
     sf::Color m_highlightColor;
     sf::Color m_defaultColor;
-    ma::IMenuCallback* m_pCallback;
+    ma::Gui::IMenuCallback* m_pCallback;
     int m_index;
 };
 

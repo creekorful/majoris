@@ -1,8 +1,8 @@
 #include "Text.h"
 
-ma::Text::Text() = default;
+ma::Gui::Text::Text() = default;
 
-ma::Text::Text(sf::Font& font, sf::Color color, const std::string& text, const sf::Vector2f& position)
+ma::Gui::Text::Text(sf::Font& font, sf::Color color, const std::string& text, const sf::Vector2f& position)
 {
     m_text.setFont(font);
     m_text.setFillColor(color);
@@ -13,23 +13,23 @@ ma::Text::Text(sf::Font& font, sf::Color color, const std::string& text, const s
     m_text.setPosition(position);
 }
 
-void ma::Text::draw(sf::RenderTarget& target, sf::RenderStates states) const
+void ma::Gui::Text::draw(sf::RenderTarget& target, sf::RenderStates states) const
 {
     states.transform *= getTransform();
     target.draw(m_text, states);
 }
 
-std::string ma::Text::text() const
+std::string ma::Gui::Text::text() const
 {
     return m_text.getString();
 }
 
-sf::Color ma::Text::color() const
+sf::Color ma::Gui::Text::color() const
 {
     return m_text.getFillColor();
 }
 
-void ma::Text::setText(const std::string& text)
+void ma::Gui::Text::setText(const std::string& text)
 {
     m_text.setString(text);
 
@@ -38,12 +38,12 @@ void ma::Text::setText(const std::string& text)
     m_text.setOrigin(rect.left + rect.width / 2, rect.top + rect.height / 2);
 }
 
-void ma::Text::setColor(const sf::Color& color)
+void ma::Gui::Text::setColor(const sf::Color& color)
 {
     m_text.setFillColor(color);
 }
 
-void ma::Text::setFont(sf::Font& font)
+void ma::Gui::Text::setFont(sf::Font& font)
 {
     m_text.setFont(font);
 }

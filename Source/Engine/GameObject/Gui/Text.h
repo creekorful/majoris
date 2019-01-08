@@ -6,7 +6,7 @@
 
 #include "../GameObject.h"
 
-namespace ma
+namespace ma::Gui
 {
     class Text;
 }
@@ -14,7 +14,7 @@ namespace ma
 /**
  * Basic game object that represent a text
  */
-class ma::Text : public ma::GameObject
+class ma::Gui::Text : public ma::GameObject
 {
 public:
 

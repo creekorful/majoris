@@ -1,12 +1,12 @@
 #include "Menu.h"
 
-ma::Menu::Menu()
+ma::Gui::Menu::Menu()
 {
     m_index = 0;
     m_pCallback = nullptr;
 }
 
-void ma::Menu::pollEvent(const sf::Event& event)
+void ma::Gui::Menu::pollEvent(const sf::Event& event)
 {
     GameObject::pollEvent(event);
 
@@ -46,7 +46,7 @@ void ma::Menu::pollEvent(const sf::Event& event)
     }
 }
 
-void ma::Menu::update(float dt)
+void ma::Gui::Menu::update(float dt)
 {
     GameObject::update(dt);
 
@@ -66,7 +66,7 @@ void ma::Menu::update(float dt)
 
 }
 
-void ma::Menu::draw(sf::RenderTarget& target, sf::RenderStates states) const
+void ma::Gui::Menu::draw(sf::RenderTarget& target, sf::RenderStates states) const
 {
     for (const auto& text : m_items)
     {
@@ -76,12 +76,12 @@ void ma::Menu::draw(sf::RenderTarget& target, sf::RenderStates states) const
     }
 }
 
-void ma::Menu::setItems(const std::vector<std::string>& items, sf::Font& font)
+void ma::Gui::Menu::setItems(const std::vector<std::string>& items, sf::Font& font)
 {
     int index = 0;
     for (const std::string& item : items)
     {
-        ma::Text text;
+        ma::Gui::Text text;
         text.setColor(m_defaultColor);
         text.setText(item);
         text.setFont(font);
@@ -92,17 +92,17 @@ void ma::Menu::setItems(const std::vector<std::string>& items, sf::Font& font)
     }
 }
 
-void ma::Menu::setDefaultColor(const sf::Color& defaultColor)
+void ma::Gui::Menu::setDefaultColor(const sf::Color& defaultColor)
 {
     m_defaultColor = defaultColor;
 }
 
-void ma::Menu::setHighlightColor(const sf::Color& highlightColor)
+void ma::Gui::Menu::setHighlightColor(const sf::Color& highlightColor)
 {
     m_highlightColor = highlightColor;
 }
 
-void ma::Menu::setCallback(ma::IMenuCallback* pCallback)
+void ma::Gui::Menu::setCallback(ma::Gui::IMenuCallback* pCallback)
 {
     m_pCallback = pCallback;
 }
