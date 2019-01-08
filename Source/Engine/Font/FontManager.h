@@ -7,10 +7,16 @@
 
 #include <SFML/Graphics/Font.hpp>
 
+
+namespace ma
+{
+    class FontManager;
+}
+
 /**
  * Class to manage font loading / usage
  */
-class FontManager
+class ma::FontManager
 {
 public:
     /**
