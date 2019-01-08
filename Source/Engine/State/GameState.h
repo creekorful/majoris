@@ -34,22 +34,6 @@ public:
     void initialize(ma::GameEngine* pGameEngine);
 
     /**
-     * Re-initialize the game state
-     *
-     * this method will reset initialize flag at false so the next time the state become active
-     * the initialization method will be called again
-     * and will also remove all game objects from list without calling delete method
-     *
-     * this method can be overriden but make sure to call method however behavior is undefined
-     */
-    virtual void reinitialize();
-
-    /**
-     * @return true if the state should be reinitialized false otherwise
-     */
-    virtual bool shouldReinitialize();
-
-    /**
      * Update game state physics using given delta time
      * useful if physics should be computed
      *

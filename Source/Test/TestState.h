@@ -24,8 +24,6 @@ public:
 protected:
     void initialize() override;
 
-    void reinitialize() override;
-
 private:
     sf::Font m_font;
 
