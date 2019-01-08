@@ -79,6 +79,17 @@ protected:
     void add(GameObject* gameObject);
 
     /**
+     * Re-initialize the game state
+     *
+     * this method will reset initialize flag at false so the next time the state become active
+     * the initialization method will be called again
+     * and will also remove all game objects from list without calling delete method
+     *
+     * this method can be overriden but make sure to call method however behavior is undefined
+     */
+    virtual void reinitialize();
+
+    /**
      * @return the linked / associated game engine instance
      */
     GameEngine* getEngine();

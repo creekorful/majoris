@@ -34,3 +34,8 @@ void TestState::onMenuItemSelected(const std::string& itemName)
 void TestState::onMenuItemHovered(const std::string& itemName)
 {
 }
+
+void TestState::reinitialize()
+{
+    GameState::reinitialize();
+}

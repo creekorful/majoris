@@ -45,3 +45,11 @@ void ma::GameState::add(ma::GameObject* gameObject)
 {
     m_gameObjects.push_back(gameObject);
 }
+
+void ma::GameState::reinitialize()
+{
+    // Delete game objects
+    m_gameObjects.clear();
+
+    m_initialized = false;
+}
