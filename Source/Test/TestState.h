@@ -7,10 +7,6 @@
 class TestState : public ma::GameState, public ma::Gui::IMenuCallback
 {
 public:
-    void update(float dt) override;
-
-    void pollEvent(const sf::Event& event) override;
-
     std::string title() override;
 
     static TestState& instance()
@@ -26,8 +22,6 @@ public:
     void onMenuItemHovered(const std::string& itemName) override;
 
 protected:
-    void draw(sf::RenderTarget& target, sf::RenderStates states) const override;
-
     void initialize() override;
 
 private:

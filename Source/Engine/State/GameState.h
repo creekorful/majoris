@@ -1,11 +1,14 @@
 #ifndef RED_ARROW_GAMESTATE_H
 #define RED_ARROW_GAMESTATE_H
 
+#include <vector>
+
 #include <SFML/Graphics/Drawable.hpp>
 #include <SFML/Window/Event.hpp>
 
 #include "../Common/Updateable.h"
 #include "../GameEngine.h"
+#include "../GameObject/GameObject.h"
 
 namespace ma
 {
@@ -35,14 +38,14 @@ public:
      *
      * @param dt the time passed
      */
-    void update(float dt) override = 0;
+    void update(float dt) override;
 
     /**
      * Poll event received from window
      *
      * @param event the event to poll / process
      */
-    virtual void pollEvent(const sf::Event& event) = 0;
+    virtual void pollEvent(const sf::Event& event);
 
     /**
      * return the name of the state to be displayed on window title
@@ -59,7 +62,7 @@ protected:
      * @param target the render target
      * @param states rend states to be used
      */
-    void draw(sf::RenderTarget& target, sf::RenderStates states) const override = 0;
+    void draw(sf::RenderTarget& target, sf::RenderStates states) const override;
 
     /**
      * called internally when first intialization occured
@@ -69,12 +72,20 @@ protected:
     virtual void initialize() = 0;
 
     /**
+     * Add game object to the state
+     *
+     * @param pointer to the game object to be added
+     */
+    void add(GameObject* gameObject);
+
+    /**
      * @return the linked / associated game engine instance
      */
     GameEngine* getEngine();
 
 private:
     GameEngine* m_pGameEngine;
+    std::vector<ma::GameObject*> m_gameObjects;
     bool m_initialized;
 };
 

@@ -1,23 +1,8 @@
 #include "TestState.h"
 
-void TestState::update(float dt)
-{
-    m_menu.update(dt);
-}
-
-void TestState::pollEvent(const sf::Event& event)
-{
-    m_menu.pollEvent(event);
-}
-
 std::string TestState::title()
 {
     return "Majoris - Test state";
-}
-
-void TestState::draw(sf::RenderTarget& target, sf::RenderStates states) const
-{
-    target.draw(m_menu, states);
 }
 
 void TestState::initialize()
@@ -34,6 +19,8 @@ void TestState::initialize()
     m_menu.setItems({"Singleplayer", "Multiplayer", "Options", "Exit"}, m_font);
     m_menu.setPosition(screenSize.x / 2.f, screenSize.y / 2.f);
     m_menu.setCallback(this);
+
+    add(&m_menu);
 }
 
 void TestState::onMenuItemSelected(const std::string& itemName)

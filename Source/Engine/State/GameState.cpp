@@ -16,3 +16,32 @@ ma::GameEngine* ma::GameState::getEngine()
 {
     return m_pGameEngine;
 }
+
+void ma::GameState::update(float dt)
+{
+    for (auto& gameObject : m_gameObjects)
+    {
+        gameObject->update(dt);
+    }
+}
+
+void ma::GameState::pollEvent(const sf::Event& event)
+{
+    for (auto& gameObject : m_gameObjects)
+    {
+        gameObject->pollEvent(event);
+    }
+}
+
+void ma::GameState::draw(sf::RenderTarget& target, sf::RenderStates states) const
+{
+    for (const auto& gameObject : m_gameObjects)
+    {
+        target.draw(*gameObject, states);
+    }
+}
+
+void ma::GameState::add(ma::GameObject* gameObject)
+{
+    m_gameObjects.push_back(gameObject);
+}
