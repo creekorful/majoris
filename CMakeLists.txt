@@ -8,12 +8,17 @@ find_package(SFML REQUIRED COMPONENTS graphics window system)
 
 include_directories(${SFML_INCLUDE_DIR})
 
-add_library(Majoris Source/main.cpp
+add_library(Majoris Source/Test/main.cpp
         Source/Engine/GameEngine.h Source/Engine/GameEngine.cpp
         Source/Engine/Common/Updateable.h
         Source/Engine/GameObject/GameObject.h Source/Engine/GameObject/GameObject.cpp
         Source/Engine/GameObject/Component.h Source/Engine/GameObject/Component.cpp
         Source/Engine/State/GameState.h Source/Engine/State/GameState.cpp
-        Source/Engine/Utils/RandomNumberGenerator.h Source/Engine/Utils/RandomNumberGenerator.cpp Source/Engine/Font/FontManager.cpp Source/Engine/Font/FontManager.h)
+        Source/Engine/Utils/RandomNumberGenerator.h Source/Engine/Utils/RandomNumberGenerator.cpp
+        Source/Engine/Font/FontManager.cpp Source/Engine/Font/FontManager.h Source/Test/TestState.cpp Source/Test/TestState.h)
 
 target_link_libraries(Majoris ${SFML_LIBRARIES} ${SFML_DEPENDENCIES})
+
+add_executable(majoris_test Source/Test/main.cpp)
+
+target_link_libraries(majoris_test Majoris)
