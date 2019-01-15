@@ -15,7 +15,7 @@ add_library(Majoris Source/Test/main.cpp
         Source/Engine/GameObject/Component.h Source/Engine/GameObject/Component.cpp
         Source/Engine/State/GameState.h Source/Engine/State/GameState.cpp
         Source/Engine/Utils/RandomNumberGenerator.h Source/Engine/Utils/RandomNumberGenerator.cpp
-        Source/Engine/Font/FontManager.cpp Source/Engine/Font/FontManager.h Source/Test/TestState.cpp Source/Test/TestState.h Source/Engine/GameObject/Gui/Text.cpp Source/Engine/GameObject/Gui/Text.h Source/Engine/GameObject/Gui/Menu.cpp Source/Engine/GameObject/Gui/Menu.h)
+        Source/Engine/Font/FontManager.cpp Source/Engine/Font/FontManager.h Source/Test/TestState.cpp Source/Test/TestState.h Source/Engine/GameObject/Gui/Text.cpp Source/Engine/GameObject/Gui/Text.h Source/Engine/GameObject/Gui/Menu.cpp Source/Engine/GameObject/Gui/Menu.h Source/Engine/Texture/TextureManager.cpp Source/Engine/Texture/TextureManager.h)
 
 target_link_libraries(Majoris ${SFML_LIBRARIES} ${SFML_DEPENDENCIES})
 

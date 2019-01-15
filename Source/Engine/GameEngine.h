@@ -7,6 +7,7 @@
 
 #include "State/GameState.h"
 #include "Font/FontManager.h"
+#include "Texture/TextureManager.h"
 
 namespace ma
 {
@@ -76,10 +77,16 @@ public:
      */
     ma::FontManager& fontManager();
 
+    /**
+     * @return reference to texture manager
+     */
+    ma::TextureManager& textureManager();
+
 private:
     sf::RenderWindow m_window;
     GameState* m_pState;
     ma::FontManager m_fontManager;
+    ma::TextureManager m_textureManager;
     sf::Clock m_deltaClock;
 };
 

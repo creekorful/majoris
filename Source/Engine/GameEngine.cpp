@@ -80,3 +80,8 @@ ma::FontManager& ma::GameEngine::fontManager()
 {
     return m_fontManager;
 }
+
+ma::TextureManager& ma::GameEngine::textureManager()
+{
+    return m_textureManager;
+}
