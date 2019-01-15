@@ -8,7 +8,7 @@ std::string TestState::title()
 void TestState::initialize()
 {
     // Load arial font and keep reference to it
-    getEngine()->fontManager().loadFont("Fonts/Arial.ttf");
+    getEngine()->fontManager().loadFont("Arial", "Fonts/Arial.ttf");
     m_font = getEngine()->fontManager().getFont("Arial");
 
     sf::Vector2u screenSize = getEngine()->screenSize();
