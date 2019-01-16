@@ -3,6 +3,9 @@
 
 #include "../Engine/State/GameState.h"
 #include "../Engine/GameObject/Gui/Menu.h"
+#include "../Engine/Filesystem/Directory.h"
+
+#define EXIT "Exit"
 
 class TestState : public ma::GameState, public ma::Gui::IMenuCallback
 {
@@ -28,6 +31,8 @@ private:
     sf::Font m_font;
 
     ma::Gui::Menu m_menu;
+
+    std::map<std::string, ma::Filesystem::File> m_saveFiles;
 };
 
 
