@@ -11,7 +11,19 @@ void TestState::initialize()
     getEngine()->fontManager().loadFont("Arial", "Fonts/Arial.ttf");
     m_font = getEngine()->fontManager().getFont("Arial");
 
+    // Load background texture and keep reference to it
+    if(!getEngine()->textureManager().loadTexture("background", "Media/background.bmp"))
+    {
+        std::cerr << "Unable to open media/background.bpm";
+        exit(-1);
+    }
+    sf::Texture& tex = getEngine()->textureManager().getTexture("background");
+
     sf::Vector2u screenSize = getEngine()->screenSize();
+
+    // Create background
+    m_background = ma::Sprite(tex, sf::Vector2f(0, 0));
+    add(&m_background);
 
     // Search for save files
     std::map<std::string, ma::Filesystem::File> savesFiles;

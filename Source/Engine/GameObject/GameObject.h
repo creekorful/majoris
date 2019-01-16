@@ -57,7 +57,7 @@ public:
     virtual void setPosition(float x, float y);
 
     /**
-     * @return game object transform
+     * @return copy of the game object transform
      */
     sf::Transform transform() const;
 

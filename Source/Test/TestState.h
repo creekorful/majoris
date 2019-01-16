@@ -4,6 +4,7 @@
 #include "../Engine/State/GameState.h"
 #include "../Engine/GameObject/Gui/Menu.h"
 #include "../Engine/Filesystem/Directory.h"
+#include "../Engine/GameObject/Sprite.h"
 
 #define EXIT "Exit"
 
@@ -29,6 +30,8 @@ protected:
 
 private:
     sf::Font m_font;
+
+    ma::Sprite m_background;
 
     ma::Gui::Menu m_menu;
 
