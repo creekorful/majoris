@@ -60,7 +60,7 @@ void ma::GameEngine::setCurrentState(ma::GameState* pState)
     m_pState->initialize(this);
 
     // override window title if any
-    if (pState->title().empty())
+    if (!pState->title().empty())
     {
         m_window.setTitle(pState->title());
     }
